@@ -12,14 +12,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/user")
 @SecurityRequirement(name="bearer-key")
 public class UserController {
 
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/usuarios")
+    @GetMapping("/users")
     public ResponseEntity<Page<ListUsersDTO>> listUsers(@PageableDefault(size = 10) Pageable paged){
         return ResponseEntity.ok(userRepository.findByActiveTrue(paged).map(ListUsersDTO::new));
     }

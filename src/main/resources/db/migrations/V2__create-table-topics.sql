@@ -7,5 +7,5 @@ CREATE TABLE topics (
     author_id BIGINT,
     course VARCHAR(255) NOT NULL,
     active BOOLEAN NOT NULL,
-    FOREIGN KEY (author_id) REFERENCES usuarios(id)
+    FOREIGN KEY (author_id) REFERENCES users(id)
 );

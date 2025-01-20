@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.*;
 public class ResponseController
 {
     @Autowired
-    private TopicRepository topicoRepository;
+    private TopicRepository topicRepository;
     @Autowired
-    private UserRepository usuarioRepository;
+    private UserRepository userRepository;
     @Autowired
     private ResponseService responseService;
     @Autowired
@@ -36,8 +36,8 @@ public class ResponseController
         return ResponseEntity.ok(registeredResponse);
     }
 
-    @GetMapping("/respuestas")
-    public ResponseEntity<Page<ListResponsesDTO>>  listarRespuestas(@PageableDefault(size = 10) Pageable paged){
+    @GetMapping("/responses")
+    public ResponseEntity<Page<ListResponsesDTO>>  listResponses(@PageableDefault(size = 10) Pageable paged){
         return ResponseEntity.ok(repository.findByActiveTrue(paged).map(ListResponsesDTO::new));
     }
 
@@ -48,13 +48,13 @@ public class ResponseController
         response.updatedResponse(updatedResponseDTO);
         return ResponseEntity.ok(new UpdatedResponseDTO(response.getId(),response.getSolution(),
                 response.getAuthor().getId(),
-                response.getTopico().getId(),
+                response.getTopic().getId(),
                 response.getCreationDate()));
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity eliminarRespuesta(@PathVariable Long id){
+    public ResponseEntity deleteResponse(@PathVariable Long id){
         Response response = repository.getReferenceById(id);
         response.deactivateResponse();
         return ResponseEntity.noContent().build();
@@ -62,12 +62,12 @@ public class ResponseController
 
 
     @GetMapping("/{id}")
-    public ResponseEntity <CreatedResponseDTO> respuestaCreada(@PathVariable Long id){
+    public ResponseEntity <CreatedResponseDTO> createResponse(@PathVariable Long id){
         Response response=repository.getReferenceById(id);
         var registeredResponse = new CreatedResponseDTO(response.getId(),
                 response.getSolution(),
                 response.getAuthor().getId(),
-                response.getTopico().getId(),
+                response.getTopic().getId(),
                 response.getCreationDate());
         return ResponseEntity.ok(registeredResponse);
     }

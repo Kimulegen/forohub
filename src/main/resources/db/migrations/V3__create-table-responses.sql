@@ -3,8 +3,8 @@ CREATE TABLE responses (
     creationDate DATETIME NOT NULL,
     solution TEXT NOT NULL,
     author BIGINT,
-    topico BIGINT,
+    topic BIGINT,
     active BOOLEAN NOT NULL,
-    FOREIGN KEY (author) REFERENCES usuarios(id),
-    FOREIGN KEY (topico) REFERENCES topicos(id)
+    FOREIGN KEY (author) REFERENCES users(id),
+    FOREIGN KEY (topic) REFERENCES topics(id)
 );

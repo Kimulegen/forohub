@@ -12,7 +12,7 @@ public record ListResponsesDTO(Long id,
         this(response.getId(),
                 response.getSolution(),
                 response.getAuthor().getId(),
-                response.getTopico().getId(),
+                response.getTopic().getId(),
                 response.getCreationDate());
     }
 }

@@ -10,6 +10,6 @@ public record CreatedResponseDTO(
         LocalDateTime creationDate
 ) {
     public CreatedResponseDTO(Response rVerified) {
-        this(rVerified.getId(),rVerified.getSolution(),rVerified.getAuthor().getId(),rVerified.getTopico().getId(),rVerified.getCreationDate());
+        this(rVerified.getId(),rVerified.getSolution(),rVerified.getAuthor().getId(),rVerified.getTopic().getId(),rVerified.getCreationDate());
     }
 }

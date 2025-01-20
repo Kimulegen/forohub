@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @ResponseBody
-@RequestMapping("/topico")
+@RequestMapping("/topic")
 @SecurityRequirement(name="bearer-key")
 public class TopicController {
     @Autowired

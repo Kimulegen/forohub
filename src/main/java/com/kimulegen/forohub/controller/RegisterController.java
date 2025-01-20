@@ -33,12 +33,12 @@ public class RegisterController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> registrarUsuario(@RequestBody @Valid RegisterUserDTO registerUserDTO, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<?> registerUser(@RequestBody @Valid RegisterUserDTO registerUserDTO, UriComponentsBuilder uriComponentsBuilder) {
         try {
             RegisterUserDTO user = userService.registerUser(registerUserDTO);
             ResponseUserDTO responseUserDTO;
             responseUserDTO = new ResponseUserDTO(user.getId(), user.getName());
-            URI url = uriComponentsBuilder.path("usuario/{id}").buildAndExpand(user.getId()).toUri();
+            URI url = uriComponentsBuilder.path("user/{id}").buildAndExpand(user.getId()).toUri();
             return ResponseEntity.created(url).body(responseUserDTO);
         } catch (ConstraintViolationException ex) {
             return ResponseEntity.badRequest().body("Validation failed: " + ex.getMessage());

@@ -24,15 +24,15 @@ public class Response {
     @JoinColumn(name="author", referencedColumnName="id")
     private User author;
     @OneToOne
-    @JoinColumn(name="topico", referencedColumnName="id")
-    private Topic topico;
+    @JoinColumn(name="topic", referencedColumnName="id")
+    private Topic topic;
     private boolean active;
 
     public Response(Long id, String solution, User user, Topic topic, LocalDateTime creationDate) {
         this.id=id;
         this.solution=solution;
         this.author=user;
-        this.topico=topic;
+        this.topic=topic;
         this.creationDate=LocalDateTime.now();
     }
 
