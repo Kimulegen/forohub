@@ -13,7 +13,7 @@ public class TopicService {
     @Autowired
     private UserRepository userRepository;
 
-    public TopicResponseDTO TopicCreated(TopicDTO topicDTO){
+    public ResponseTopicDTO TopicCreated(TopicDTO topicDTO){
         if(!userRepository.findById(topicDTO.user_id()).isPresent()){
             throw new IntegrityValidation("Usario no registrado");
         }
@@ -31,6 +31,6 @@ public class TopicService {
         var user = userRepository.findById(topicDTO.user_id()).get();
         var topicID = new Topic(null, title, message, topicDTO.date(), topicDTO.status(), user, topicDTO.course());
         topicRepository.save(topicID);
-        return new TopicResponseDTO(topicID);
+        return new ResponseTopicDTO(topicID);
     }
 }

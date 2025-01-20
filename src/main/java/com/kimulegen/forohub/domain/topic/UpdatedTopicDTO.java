@@ -3,7 +3,7 @@ package com.kimulegen.forohub.domain.topic;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-public record updatedTopicDTO(
+public record UpdatedTopicDTO(
         @NotNull
         Long id,
         String title,

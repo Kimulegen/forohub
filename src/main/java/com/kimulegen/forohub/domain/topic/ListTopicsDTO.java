@@ -8,7 +8,7 @@ public record ListTopicsDTO(
         String message,
         Status status,
         Long user_id,
-        String curso,
+        String course,
         LocalDateTime date
 ) {
     public ListTopicsDTO (Topic topic){

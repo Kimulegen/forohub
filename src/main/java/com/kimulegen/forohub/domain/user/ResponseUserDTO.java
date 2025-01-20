@@ -1,6 +1,6 @@
 package com.kimulegen.forohub.domain.user;
 
-public record AnswerUserDTO(
+public record ResponseUserDTO(
         Long id,
         String name
 ) {

@@ -41,7 +41,7 @@ public class Topic {
         this.course=course;
     }
 
-    public void setUpdatedTopicDTO(updatedTopicDTO updatedTopicDTO) {
+    public void setUpdatedTopicDTO(UpdatedTopicDTO updatedTopicDTO) {
         if (updatedTopicDTO.title() !=null){
             this.title= updatedTopicDTO.title();
         }
@@ -55,7 +55,7 @@ public class Topic {
             this.course=updatedTopicDTO.course();
         }
     }
-    public void dactivateTopic(){
+    public void deactivateTopic(){
         this.active=false;
     }
 }

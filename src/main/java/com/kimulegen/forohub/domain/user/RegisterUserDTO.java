@@ -23,4 +23,16 @@ public record RegisterUserDTO(
         @NotBlank(message = "Debe tenee entre 8 y 16 caracteres")
         @Pattern(regexp = "\\d{8,16}")
         String password
-) {}
+) {
+        public Long getId() {
+                return id;
+        }
+
+        public String getName() {
+                return name;
+        }
+
+        public String getEmail() {
+                return email;
+        }
+}

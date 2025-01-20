@@ -19,7 +19,7 @@ public class TokenService {
 
     @Autowired
     private UserRepository userRepository;
-    public String generarToken(User user){
+    public String generateToken(User user){
         try {
             Algorithm algorithm = Algorithm.HMAC256(user.getPassword());
             return JWT.create()
