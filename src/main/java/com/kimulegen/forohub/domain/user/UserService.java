@@ -1,5 +1,6 @@
 package com.kimulegen.forohub.domain.user;
 
+import com.kimulegen.forohub.infra.errors.IntegrityValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
