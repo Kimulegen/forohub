@@ -28,7 +28,7 @@ public class SecurityConfiguration {
                         authorizeRequests
                                 .requestMatchers(HttpMethod.POST, "/login")
                                 .permitAll()
-                                .requestMatchers(HttpMethod.POST, "/registro")
+                                .requestMatchers(HttpMethod.POST, "/register")
                                 .permitAll()
                                 .requestMatchers("/swagger-ui.html", "/v3/api-docs/**","/swagger-ui/**")
                                 .permitAll()
